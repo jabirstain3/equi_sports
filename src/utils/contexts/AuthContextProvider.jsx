@@ -7,7 +7,7 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState( null );
-    const [ authloading , setAuthloading ] = useState(true)
+    const [ authloading , setAuthloading ] = useState(false)
     const googleProvider = new GoogleAuthProvider();
 
     // Creat user

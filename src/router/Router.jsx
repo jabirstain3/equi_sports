@@ -4,6 +4,7 @@ import RegistrationPage from "../pages/registrationPage/RegistrationPage.jsx";
 import LogInPage from "../pages/logInPage/LogInPage.jsx";
 import ErrorPage from "../pages/errorPage/ErrorPage.jsx";
 import HomeLayout from "../layouts/homeLayout/HomeLayout.jsx";
+import ProductDetailsLayout from "../layouts/productDetailsLayout/ProductDetailsLayout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <HomeLayout/>,
+            },
+            {
+                path: "products/:id",
+                element: <ProductDetailsLayout/>,
             },
         ]
     },

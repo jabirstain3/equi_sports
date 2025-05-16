@@ -11,7 +11,7 @@ const RegistrationPage = () => {
     const [ show, setShow ] = useState(false);
     const  [ currectFormate, setcurrectFormate ] = useState(true);
     const { createUser, googleUser, authLoading, updateUserProfile } = useContext(AuthContext);
-        const location = useLocation();
+    const location = useLocation();
     const goTo = useToRoute();
     const toast = useToast()
 
