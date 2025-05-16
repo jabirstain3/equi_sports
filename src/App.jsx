@@ -1,8 +1,12 @@
+import Loader from "./components/loader/Loader"
+
+
 function App() {
 
   return (
       <div>
-        Equi Sports
+        Navbar
+        Footer
       </div>
   )
 }
