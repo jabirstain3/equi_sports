@@ -80,7 +80,7 @@ const LogInPage = () => {
                         <span className='absolute top-2 right-2 cursor-default' onClick={() => setShow(!show)}>{ show ? "Hide" : "Show"}</span>
                     </div>
 
-                    <input className="w-fit border rounded-md bg-[#3b9df8] px-10 py-1 mt-2 mx-auto text-lg font-medium text-white" type="submit" value={"Log In"} />
+                    <input className="w-fit border rounded-md bg-[#155692] px-10 py-1 mt-2 mx-auto text-lg font-medium text-white" type="submit" value={"Log In"} />
 
                     {/* <p className="text-center">Forget password? <NavLink className={'hover:text-black '} to={'/forget-password'} >Reset Password!</NavLink></p> */}
 

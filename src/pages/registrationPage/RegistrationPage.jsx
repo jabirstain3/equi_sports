@@ -110,7 +110,7 @@ const RegistrationPage = () => {
                         <p htmlFor="terms">Accept our <a href="">terms and condation</a></p>
                     </div>
 
-                    <input className="w-fit border rounded-md bg-[#3b9df8] px-10 py-1 mt-2 mx-auto text-lg font-medium text-white" type="submit" value={"Register"} />
+                    <input className="w-fit border rounded-md bg-[#155692] px-10 py-1 mt-2 mx-auto text-lg font-medium text-white" type="submit" value={"Register"} />
 
                     <p className="text-center">Have an account? <NavLink className={'hover:text-black '} to={'/login'} >Log In!</NavLink></p>
                     </form>
