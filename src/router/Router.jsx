@@ -3,11 +3,18 @@ import App from "../App.jsx";
 import RegistrationPage from "../pages/registrationPage/RegistrationPage.jsx";
 import LogInPage from "../pages/logInPage/LogInPage.jsx";
 import ErrorPage from "../pages/errorPage/ErrorPage.jsx";
+import HomeLayout from "../layouts/homeLayout/HomeLayout.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App/>,
+        children:[
+            {
+                path: "",
+                element: <HomeLayout/>,
+            },
+        ]
     },
     {
         path: "registration",
