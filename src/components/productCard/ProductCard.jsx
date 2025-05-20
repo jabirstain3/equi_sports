@@ -5,8 +5,8 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { RiHeartAddLine, RiHeartFill } from "react-icons/ri";
 
 const ProductCard = ({ product }) => {
-    const goTo = useToRoute()
     const [isFavorite, setIsFavorite] = useState(false);
+    const goTo = useToRoute()
     const toast = useToast()
     const { _id:id, productName:product_name, images, brand, price, category } = product
 

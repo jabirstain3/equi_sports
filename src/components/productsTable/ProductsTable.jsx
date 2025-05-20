@@ -82,7 +82,7 @@ const ProductsTable = ({ products }) => {
     }, [])
 
     return (
-        <div className="customTable overflow-y-auto border mb-4 w-full flex items-center flex-col gap-5 justify-center">
+        <div className="customTable overflow-y-auto mb-4 w-full flex items-center flex-col gap-5 justify-center">
             <div className="w-full mx-auto p-2">
                 <div className="mb-4">
                     <input placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} className="max-w-sm py-2.5 px-4 border border-gray-200 rounded-md outline-none focus:border-blue-300" />

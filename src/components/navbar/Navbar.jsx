@@ -7,6 +7,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout2 } from "react-icons/tb";
 import { IoIosArrowUp } from "react-icons/io";
 import { CiMenuFries } from "react-icons/ci";
+import { AiOutlineProduct } from "react-icons/ai";
 
 const Navbar = () => { 
     const [accountMenuOpen, setAccountMenuOpen] = useState(false);
@@ -16,7 +17,8 @@ const Navbar = () => {
     // console.log(user);
     
     
-    const { displayName:name, photoURL:photo, } = user || { displayName:"User", photoURL: "notavailavle", };
+    const { displayName:name, photoURL:photo, uid
+:userbase } = user || { displayName:"User", photoURL: "notavailavle", };
 
     const navlinks = [
         {name: "All Products", path: "products"},
@@ -31,6 +33,10 @@ const Navbar = () => {
     const handelLogOut = () =>{
         logOut()
         goTo('/')
+    }
+
+    const handalViewMyProduct = () => {
+        goTo(`${userbase}/products`)
     }
 
     return (
@@ -68,8 +74,12 @@ const Navbar = () => {
 
                             <div className={`${accountMenuOpen ? "translate-y-0 opacity-100 z-[10]" : "translate-y-[10px] opacity-0 z-[-1]"} bg-[#b2d6f5b2] w-max rounded-md absolute top-[45px] right-0 p-[10px] flex flex-col transition-all duration-300 gap-[5px]`}>
                                 <button className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] text-gray-800 hover:bg-gray-50">
-                                    <FiUser/>
+                                    <FiUser />
                                     View Profile
+                                </button>
+                                <button onClick={handalViewMyProduct} className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] text-gray-800 hover:bg-gray-50">
+                                    <AiOutlineProduct />
+                                    My Products
                                 </button>
                                 <button className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] text-gray-800 hover:bg-gray-50">
                                     <IoSettingsOutline/>
@@ -78,7 +88,7 @@ const Navbar = () => {
 
                                 <div className="mt-3 border-t border-gray-300 pt-[5px]">
                                     <button className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] text-red-500 hover:bg-red-50" onClick={handelLogOut}>
-                                        <TbLogout2/>
+                                        <TbLogout2 />
                                         Logout
                                     </button>
                                 </div>

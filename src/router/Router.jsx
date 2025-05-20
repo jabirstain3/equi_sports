@@ -8,6 +8,7 @@ import ProductDetailsLayout from "../layouts/productDetailsLayout/ProductDetails
 import ProtectedRoute from "../routes/protectedRoute/ProtectedRoute.jsx";
 import CreateProductLayout from "../layouts/createProductLayout/CreateProductLayout.jsx";
 import DisplayAllProductsLayout from "../layouts/displayAllProductsLayout/DisplayAllProductsLayout.jsx";
+import DisplayMyProducts from "../layouts/displayMyProducts/DisplayMyProducts.jsx";
 
 const router = createBrowserRouter([
     {
@@ -24,12 +25,20 @@ const router = createBrowserRouter([
                 element: <DisplayAllProductsLayout />,
             },
             {
+                path: "createproduct",
+                element: <ProtectedRoute> <CreateProductLayout/> </ProtectedRoute>,
+            },
+            {
                 path: "product/:id",
                 element: <ProtectedRoute> <ProductDetailsLayout/> </ProtectedRoute>,
             },
             {
-                path: "createproduct",
-                element: <ProtectedRoute> <CreateProductLayout/> </ProtectedRoute>,
+                path: "product/:id/update",
+                element: <ProtectedRoute> <ProductDetailsLayout/> </ProtectedRoute>,
+            },
+            {
+                path: ":userbase/products",
+                element: <ProtectedRoute> <DisplayMyProducts/> </ProtectedRoute>,
             },
         ]
     },

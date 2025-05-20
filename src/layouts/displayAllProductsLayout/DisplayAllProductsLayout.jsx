@@ -8,7 +8,7 @@ const DisplayAllProductsLayout = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`${import.meta.env.VITE_DOMAIN}/products`)
+        fetch(`${import.meta.env.VITE_DOMAIN}/allproducts`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
