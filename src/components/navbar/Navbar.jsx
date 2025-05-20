@@ -13,7 +13,7 @@ const Navbar = () => {
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     const goTo = useToRoute();
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     
     
     const { displayName:name, photoURL:photo, } = user || { displayName:"User", photoURL: "notavailavle", };

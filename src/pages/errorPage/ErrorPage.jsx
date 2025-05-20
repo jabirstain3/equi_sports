@@ -2,7 +2,7 @@ import {FaArrowLeftLong} from "react-icons/fa6";
 import { useToRoute } from "../../hooks/navigation/useToRoute";
 
 const ErrorPage = () => {
-    document.title = "Spring Life - Page not found";
+    document.title = "Equi Sports - Page not found";
     const goTo = useToRoute();
     
     return (

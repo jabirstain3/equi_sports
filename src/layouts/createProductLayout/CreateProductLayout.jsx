@@ -61,9 +61,11 @@ const CreateProductLayout = () => {
             userEmail: userEmail,
             userName: userName
         };
-        console.log(product);
+        // console.log(product);
 
         e.target.reset();
+        setImages([]);
+        setColors([]);
 
         fetch(`${ import.meta.env.VITE_DOMAIN}/products`, {
             method: "POST",
@@ -75,7 +77,7 @@ const CreateProductLayout = () => {
             .then(res => res.json())
             .then(data => {           
                 setLoading(false)
-                console.log(data);
+                // console.log(data);
                 if(data.insertedId) {
                     toast("success" , "Product Added Successfully.")
                 }

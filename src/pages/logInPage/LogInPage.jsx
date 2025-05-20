@@ -17,7 +17,7 @@ const LogInPage = () => {
 
     document.title = "Log in to Spring Life";
     const dest = location.state || "/";
-    console.log(dest);
+    // console.log(dest);
     
 
     const handelLogInWithEmail = (e) =>{

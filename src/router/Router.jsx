@@ -7,6 +7,7 @@ import HomeLayout from "../layouts/homeLayout/HomeLayout.jsx";
 import ProductDetailsLayout from "../layouts/productDetailsLayout/ProductDetailsLayout.jsx";
 import ProtectedRoute from "../routes/protectedRoute/ProtectedRoute.jsx";
 import CreateProductLayout from "../layouts/createProductLayout/CreateProductLayout.jsx";
+import DisplayAllProductsLayout from "../layouts/displayAllProductsLayout/DisplayAllProductsLayout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
                 path: "",
                 element: <HomeLayout/>,
                 loader: () => fetch(`${import.meta.env.VITE_DOMAIN}/products`)
+            },
+            {
+                path: "products",
+                element: <DisplayAllProductsLayout />,
             },
             {
                 path: "product/:id",
