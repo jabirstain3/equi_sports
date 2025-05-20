@@ -8,10 +8,10 @@ const ProductCard = ({ product }) => {
     const goTo = useToRoute()
     const [isFavorite, setIsFavorite] = useState(false);
     const toast = useToast()
-    const { id, productName:product_name, images, brand, price, category } = product
+    const { _id:id, productName:product_name, images, brand, price, category } = product
 
     const handelDetails = () => {
-        goTo(`products/${id}`, id);
+        goTo(`product/${id}`);
     } 
 
     return (

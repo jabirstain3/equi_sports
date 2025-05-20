@@ -7,7 +7,7 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState( null );
-    const [ authloading , setAuthloading ] = useState(false)
+    const [ authloading , setAuthloading ] = useState(true)
     const googleProvider = new GoogleAuthProvider();
 
     // Creat user
@@ -37,9 +37,10 @@ export const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentuser =>{
             if(currentuser){
                 setUser(currentuser);
-                setAuthloading(false);
-            //     console.log(currentuser);
+                //console.log(currentuser);
             } else setUser(null);
+
+            setAuthloading(false);
         });
         
         return ()=> {

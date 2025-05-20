@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import Loader from "../../components/loader/Loader";
 import ProductDetailsCard from "../../components/productDetailsCard/ProductDetailsCard";
+import { useParams } from "react-router-dom";
 
 const ProductDetailsLayout = () => {    
     const [loading, setLoading] = useState(false);
     const [ product, setProduct ] = useState({})
+    const params = useParams();
+    // console.log(params);
+    
 
     useEffect(() => {
         setLoading(true)
-        fetch('/singleProduct.json')
+        fetch(`${import.meta.env.VITE_DOMAIN}/products/${params.id}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                setProduct(data[0]);             
+                // console.log(data);
+                setProduct(data);             
                 setLoading(false)
             })
             .catch((error) => {

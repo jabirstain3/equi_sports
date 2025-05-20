@@ -13,11 +13,11 @@ const LogInPage = () => {
     const goTo = useToRoute();
     const toast = useToast()
     const { logInUser, googleUser, }= useContext(AuthContext);
-    console.log(location);
+    // console.log(location);
 
     document.title = "Log in to Spring Life";
-    const dest = location.state?.from?.pathname || "/";
-    // console.log(dest);
+    const dest = location.state || "/";
+    console.log(dest);
     
 
     const handelLogInWithEmail = (e) =>{

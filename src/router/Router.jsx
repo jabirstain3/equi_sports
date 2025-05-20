@@ -5,6 +5,8 @@ import LogInPage from "../pages/logInPage/LogInPage.jsx";
 import ErrorPage from "../pages/errorPage/ErrorPage.jsx";
 import HomeLayout from "../layouts/homeLayout/HomeLayout.jsx";
 import ProductDetailsLayout from "../layouts/productDetailsLayout/ProductDetailsLayout.jsx";
+import ProtectedRoute from "../routes/protectedRoute/ProtectedRoute.jsx";
+import CreateProductLayout from "../layouts/createProductLayout/CreateProductLayout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -14,10 +16,15 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <HomeLayout/>,
+                loader: () => fetch(`${import.meta.env.VITE_DOMAIN}/products`)
             },
             {
-                path: "products/:id",
-                element: <ProductDetailsLayout/>,
+                path: "product/:id",
+                element: <ProtectedRoute> <ProductDetailsLayout/> </ProtectedRoute>,
+            },
+            {
+                path: "createproduct",
+                element: <ProtectedRoute> <CreateProductLayout/> </ProtectedRoute>,
             },
         ]
     },
