@@ -8,7 +8,9 @@ const ProductDetailsLayout = () => {
     const [ product, setProduct ] = useState({})
     const params = useParams();
     // console.log(params);
-    
+
+    document.title = `Equi Sports - ${product.productName || "product"}`;
+
 
     useEffect(() => {
         setLoading(true)

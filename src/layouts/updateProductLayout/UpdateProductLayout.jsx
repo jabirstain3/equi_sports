@@ -11,9 +11,10 @@ const UpdateProductLayout = () => {
     const { id } = useParams()
     const toast = useToast()
     console.log(id);
-    
 
     const { productName, brand, price, category, description, measurements, stockStatus, processingTime, rating } = product
+    
+    document.title = `Equi Sports - ${productName || "product"}`;
 
     const handalAddColor = () => {
         setClrs([...clrs, ""]);

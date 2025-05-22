@@ -5,6 +5,8 @@ import Loader from '../../components/loader/Loader';
 const DisplayAllProductsLayout = () => {
     const [ loading, setLoading ] = useState(false)
     const [ products, setProducts ] = useState([])
+    
+    document.title = "Equi Sports - All Products";
 
     useEffect(() => {
         setLoading(true)

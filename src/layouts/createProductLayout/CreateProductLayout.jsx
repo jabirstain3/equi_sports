@@ -9,6 +9,9 @@ const CreateProductLayout = () => {
     const [loading, setLoading] = useState(false);
     const { user } = useContext(AuthContext);
     const toast = useToast();
+
+    document.title = "Equi Sports - Add Products";
+
     const { displayName: userName, email, } = user || { displayName:"User", email: "notavailavle", };
 
     const handalAddColor = () => {

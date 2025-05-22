@@ -9,6 +9,7 @@ const DisplayMyProducts = () => {
     const { user } = useContext(AuthContext)
     // console.log(user);
     
+    document.title = `Equi Sports - Added product`;
 
     useEffect(() => {
         setLoading(true)
