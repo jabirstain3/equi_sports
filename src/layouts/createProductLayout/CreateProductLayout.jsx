@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../utils/contexts/AuthContextProvider";
 import { useToast } from "../../hooks/alart/useToast";
 import Loader from "../../components/loader/Loader";
-import { useToRoute } from "../../hooks/navigation/useToRoute";
 
 const CreateProductLayout = () => {
     const [colors, setColors] = useState([""]);
@@ -10,9 +9,7 @@ const CreateProductLayout = () => {
     const [loading, setLoading] = useState(false);
     const { user } = useContext(AuthContext);
     const toast = useToast();
-    const goTo = useToRoute();
-
-    const { displayName: userName, email:userEmail, } = user || { displayName:"User", email: "notavailavle", };
+    const { displayName: userName, email, } = user || { displayName:"User", email: "notavailavle", };
 
     const handalAddColor = () => {
         setColors([...colors, ""]);
@@ -60,7 +57,7 @@ const CreateProductLayout = () => {
             stockStatus: formData.get("stock"),
             processingTime: formData.get("processingtime"),
             rating: 0,
-            userEmail: userEmail,
+            userEmail: email,
             userName: userName
         };
         // console.log(product);
@@ -82,7 +79,6 @@ const CreateProductLayout = () => {
                 // console.log(data);
                 if(data.insertedId) {
                     toast("success" , "Product Added Successfully.")
-                    goTo(`product/${data.insertedId}`)
                 }
             })
             .catch((error) => {

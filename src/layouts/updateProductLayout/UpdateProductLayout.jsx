@@ -10,24 +10,11 @@ const UpdateProductLayout = () => {
     const [photo, setPhoto] = useState([""]);
     const { id } = useParams()
     const toast = useToast()
+    console.log(id);
+    
 
     const { productName, brand, price, category, description, measurements, stockStatus, processingTime, rating } = product
-        
-    useEffect(() => {
-        setLoading(true)
-        fetch(`${import.meta.env.VITE_DOMAIN}/products/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-            // console.log(data);
-            setProduct(data);             
-            setLoading(false);
-            setClrs(data.colors);
-            setPhoto(data.images)
-        })
-        .catch((error) => {
-            console.error('Error fetching Services:', error);
-        });
-    }, []);
+
     const handalAddColor = () => {
         setClrs([...clrs, ""]);
     };
@@ -99,10 +86,26 @@ const UpdateProductLayout = () => {
                     console.error('Error fetching Services:', error);
             });
     };
+        
+    useEffect(() => {
+        setLoading(true)
+        fetch(`${import.meta.env.VITE_DOMAIN}/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            setProduct(data);             
+            setLoading(false);
+            setClrs(data.colors);
+            setPhoto(data.images)
+        })
+        .catch((error) => {
+            console.error('Error fetching Services:', error);
+        });
+    }, [id]);
 
     return (
         <div className="sectionBase mx-auto my-4">
-            <h1 className="text-[2.2rem] font-bold md:text-center border-b-2 border-gray-300">Add Product</h1>
+            <h1 className="text-[2.2rem] font-bold md:text-center border-b-2 border-gray-300">Update Product</h1>
             {
                 loading ?
                 (
@@ -165,7 +168,7 @@ const UpdateProductLayout = () => {
                                     <div> 
                                         <label className="text-lg font-medium">Image URL's</label>
                                         {
-                                            photo.map((image, idx) => (
+                                            photo?.map((image, idx) => (
                                                 <div key={idx} className="flex gap-2 mt-1 relative">
                                                     <input className="border w-full rounded-md px-4 py-1.5" type="text" name={`image-${idx}`} defaultValue={image} onChange={e => handalImageChange(idx, e.target.value)} required />
                                                     
@@ -184,7 +187,7 @@ const UpdateProductLayout = () => {
                                     <div>
                                         <label className="text-lg font-medium">Colors</label>
                                         {
-                                            clrs.map((color, idx) => (
+                                            clrs?.map((color, idx) => (
                                                 <div key={idx} className="flex gap-2 mt-1 relative">
                                                     <input className="border w-full rounded-md px-4 py-1.5" type="text" name={`color-${idx}`} defaultValue={color} onChange={e => handalColorChange(idx, e.target.value)} required
                                                     />

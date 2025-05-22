@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { RxUpdate } from 'react-icons/rx';
 import { useToRoute } from '../../hooks/navigation/useToRoute';
+import ConfiramRemovalModal from '../confiramRemovalModal/ConfiramRemovalModal';
 
 const MyProductCart = ({ product }) => {
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const { _id:id, productName:product_name, images, brand, price, category } = product
     const goTo = useToRoute();
 
@@ -12,7 +14,7 @@ const MyProductCart = ({ product }) => {
     }
 
     const handalDeleteBtn = () => {
-        goTo(`/product/${id}/update`)
+        setIsModalVisible(true)
     }
 
     return (
@@ -43,6 +45,10 @@ const MyProductCart = ({ product }) => {
                     </button>
                 </div>
             </div>
+
+            {
+                isModalVisible && <ConfiramRemovalModal id={id}/>
+            }
         </div>
     );
 };

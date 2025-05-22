@@ -12,7 +12,7 @@ const DisplayMyProducts = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`${import.meta.env.VITE_DOMAIN}/products`)
+        fetch(`${import.meta.env.VITE_DOMAIN}/${user.email}/products`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
