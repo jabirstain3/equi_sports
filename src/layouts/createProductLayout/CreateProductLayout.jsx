@@ -2,13 +2,15 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../utils/contexts/AuthContextProvider";
 import { useToast } from "../../hooks/alart/useToast";
 import Loader from "../../components/loader/Loader";
+import { useToRoute } from "../../hooks/navigation/useToRoute";
 
 const CreateProductLayout = () => {
     const [colors, setColors] = useState([""]);
     const [images, setImages] = useState([""]);    
     const [loading, setLoading] = useState(false);
-    const { user } = useContext(AuthContext)
-    const toast = useToast()
+    const { user } = useContext(AuthContext);
+    const toast = useToast();
+    const goTo = useToRoute();
 
     const { displayName: userName, email:userEmail, } = user || { displayName:"User", email: "notavailavle", };
 
@@ -80,6 +82,7 @@ const CreateProductLayout = () => {
                 // console.log(data);
                 if(data.insertedId) {
                     toast("success" , "Product Added Successfully.")
+                    goTo(`product/${data.insertedId}`)
                 }
             })
             .catch((error) => {
@@ -193,67 +196,3 @@ const CreateProductLayout = () => {
 };
 
 export default CreateProductLayout;
-
-
-
-
-// const CreateProductLayout = () => {
-//     return (
-//         <div className="sectionBase mx-auto">
-//             <h1>Add Product</h1>
-//             <form action="" className="flex flex-col gap-2" >
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Product Name</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="name" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Category</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="category" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Price</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="price" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Brand</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="brand" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Stock</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="stock" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Processing Time</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="processingtime" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Measurements</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="measurements" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Image URL</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="Image" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Description</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="description" required />
-//                 </div>
-
-//                 <div className="">
-//                     <label htmlFor="" className="text-lg font-medium">Colors</label>
-//                     <input className="border w-full rounded-md mt-1 px-4 py-1.5" type="text" name="colors" required />
-//                 </div>
-//             </form>
-//         </div>
-//     );
-// };
-
-// export default CreateProductLayout;

@@ -9,15 +9,16 @@ import ProtectedRoute from "../routes/protectedRoute/ProtectedRoute.jsx";
 import CreateProductLayout from "../layouts/createProductLayout/CreateProductLayout.jsx";
 import DisplayAllProductsLayout from "../layouts/displayAllProductsLayout/DisplayAllProductsLayout.jsx";
 import DisplayMyProducts from "../layouts/displayMyProducts/DisplayMyProducts.jsx";
+import UpdateProductLayout from "../layouts/updateProductLayout/UpdateProductLayout.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App/>,
+        element: <App />,
         children:[
             {
                 path: "",
-                element: <HomeLayout/>,
+                element: <HomeLayout />,
                 loader: () => fetch(`${import.meta.env.VITE_DOMAIN}/products`)
             },
             {
@@ -26,33 +27,33 @@ const router = createBrowserRouter([
             },
             {
                 path: "createproduct",
-                element: <ProtectedRoute> <CreateProductLayout/> </ProtectedRoute>,
+                element: <ProtectedRoute> <CreateProductLayout /> </ProtectedRoute>,
             },
             {
                 path: "product/:id",
-                element: <ProtectedRoute> <ProductDetailsLayout/> </ProtectedRoute>,
+                element: <ProtectedRoute> <ProductDetailsLayout /> </ProtectedRoute>,
             },
             {
                 path: "product/:id/update",
-                element: <ProtectedRoute> <ProductDetailsLayout/> </ProtectedRoute>,
+                element: <ProtectedRoute> <UpdateProductLayout /> </ProtectedRoute>,
             },
             {
                 path: ":userbase/products",
-                element: <ProtectedRoute> <DisplayMyProducts/> </ProtectedRoute>,
+                element: <ProtectedRoute> <DisplayMyProducts /> </ProtectedRoute>,
             },
         ]
     },
     {
         path: "registration",
-        element: <RegistrationPage/>,
+        element: <RegistrationPage />,
     },                     
     {
         path: "login",
-        element: <LogInPage/>,
+        element: <LogInPage />,
     },
     {
         path: "*",
-        element: <ErrorPage/>,
+        element: <ErrorPage />,
     },
 ])
 

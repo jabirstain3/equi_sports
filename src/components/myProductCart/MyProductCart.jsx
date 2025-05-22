@@ -8,11 +8,11 @@ const MyProductCart = ({ product }) => {
     const goTo = useToRoute();
 
     const handalUpdateBtn = () => {
-        goTo(`product/${id}/update`)
+        goTo(`/product/${id}/update`, product)
     }
 
     const handalDeleteBtn = () => {
-        goTo(`product/${id}/update`)
+        goTo(`/product/${id}/update`)
     }
 
     return (

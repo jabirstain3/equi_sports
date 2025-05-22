@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loader from "../../components/loader/Loader";
 import MyProductCart from "../../components/myProductCart/MyProductCart";
+import { AuthContext } from "../../utils/contexts/AuthContextProvider";
 
 const DisplayMyProducts = () => {
     const [ loading, setLoading ] = useState(false)
     const [ products, setProducts ] = useState([])
+    const { user } = useContext(AuthContext)
+    // console.log(user);
+    
 
     useEffect(() => {
         setLoading(true)
-        fetch(`${import.meta.env.VITE_DOMAIN}/allproducts`)
+        fetch(`${import.meta.env.VITE_DOMAIN}/products`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
