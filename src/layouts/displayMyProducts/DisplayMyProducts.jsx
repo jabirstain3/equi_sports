@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Loader from "../../components/loader/Loader";
 import MyProductCart from "../../components/myProductCart/MyProductCart";
 import { AuthContext } from "../../utils/contexts/AuthContextProvider";
+// import { Fade } from "react-awesome-reveal";
 
 const DisplayMyProducts = () => {
     const [ loading, setLoading ] = useState(false)
@@ -39,8 +40,12 @@ const DisplayMyProducts = () => {
                     products && products.length > 0 ? 
                     (
                         <div className="flex flex-wrap justify-center gap-4 my-4">
-                            { products.map((item) => <MyProductCart key={item._id} product={item} />) }
-                        </div>
+                                {products.map((item) => (
+                                // <Fade animate__fadeOut damping={1.15} triggerOnce >
+                                    <MyProductCart key={item._id} product={item} />
+                        // </Fade>
+                                ))}
+                            </div>
                     ) : 
                     (
                         <div className="w-full border rounded-lg flex justify-center items-center h-[360px]">
