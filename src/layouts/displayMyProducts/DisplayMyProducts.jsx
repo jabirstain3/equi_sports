@@ -41,9 +41,7 @@ const DisplayMyProducts = () => {
                     (
                         <div className="flex flex-wrap justify-center gap-4 my-4">
                                 {products.map((item) => (
-                                // <Fade animate__fadeOut damping={1.15} triggerOnce >
                                     <MyProductCart key={item._id} product={item} />
-                        // </Fade>
                                 ))}
                             </div>
                     ) : 

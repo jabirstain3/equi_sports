@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
                 <span className="text-gray-500 text-[0.9rem]">{category}</span>
                 <h3 className="text-[1.1rem] font-medium mt-2">{product_name}</h3>
                 <p className="text-[0.9rem] text-gray-600 mt-1">{brand}</p>
-                <p className="text-[1.1rem] font-semibold mt-1 text-[#074552]">{price}</p>
+                <p className="text-[1.1rem] font-semibold mt-1 text-[#074552]">${price}</p>
 
                 <div className="flex items-center justify-between mt-7 gap-[15px]">
                     <button className="py-[9px] px-4 text-white rounded-2xl grow justify-center flex items-center gap-[0.5rem] bg-[#155692] hover:bg-[#155692ce] text-[1rem] font-medium transition-all duration-200" onClick={handelDetails}>

@@ -91,7 +91,7 @@ const ProductDetailsCard = ({ product }) => {
                         <p className="text-gray-600 text-[0.9rem]">{description}</p>
 
                         <div className="flex items-center gap-3">
-                            <span className="text-[1.5rem] text-gray-800 font-medium">{price}</span>
+                            <span className="text-[1.5rem] text-gray-800 font-medium">${price}</span>
                         </div>
 
                         <div className="space-y-2 border-t border-t-gray-200 pt-4">

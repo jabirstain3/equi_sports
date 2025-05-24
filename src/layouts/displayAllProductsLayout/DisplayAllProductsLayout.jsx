@@ -10,6 +10,7 @@ const DisplayAllProductsLayout = () => {
 
     useEffect(() => {
         setLoading(true)
+        // fetch(`product_data.json`)
         fetch(`${import.meta.env.VITE_DOMAIN}/allproducts`)
             .then((res) => res.json())
             .then((data) => {
