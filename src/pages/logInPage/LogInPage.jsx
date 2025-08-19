@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { NavLink, useLocation,} from "react-router-dom";
 import { useToRoute } from "../../hooks/navigation/useToRoute";
 import { useToast } from "../../hooks/alart/useToast";
 import { AuthContext } from "../../utils/contexts/AuthContextProvider";
 import { FcGoogle } from "react-icons/fc";
 import { Bounce, ToastContainer } from "react-toastify";
+import { AiFillTikTok } from "react-icons/ai";
+import axios from "axios";
 
 
 const LogInPage = () => { 
@@ -18,7 +20,38 @@ const LogInPage = () => {
     document.title = "Log in to Spring Life";
     const dest = location.state || "/";
     // console.log(dest);
-    
+
+    // const TIKTOK_CLIENT_KEY = "sbaw0h6alzgt7q4wad"; // from TikTok Developer Portal
+    // const REDIRECT_URI = "http://localhost:5173/login"; // must match what you set in TikTok portal
+    // const SCOPES = "user.info.basic"; // adjust scopes as needed
+
+
+    // useEffect(() => {
+    //     const query = new URLSearchParams(location.search);
+    //     const code = query.get("code");
+    //     console.log(code, query);
+        
+
+    //     if (code) {
+    //         fetch(`${import.meta.env.VITE_DOMAIN}/auth/tiktok`, {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({ code }),
+    //         })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //         if (data.access_token) {
+    //             localStorage.setItem("tiktok_token", data.access_token);
+    //     goTo(dest); // redirect after login
+    //         } else {
+    //             console.error("Token exchange failed", data);
+    //         }
+    //         })
+    //         .catch((err) => console.error("Error:", err));
+    //     }
+    // }, [location.search]);
+
+
 
     const handelLogInWithEmail = (e) =>{
 
@@ -56,6 +89,13 @@ const LogInPage = () => {
         // console.log("Google");
         
     }
+    
+    const  handelLogInWithtiktok = async () => {
+        // const TIKTOK_AUTH_URL = `https://www.tiktok.com/auth/authorize/?client_key=${TIKTOK_CLIENT_KEY}&scope=${encodeURIComponent(SCOPES)}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
+        // const response = await axios.get(`${import.meta.env.VITE_DOMAIN}/auth/tiktok`);
+        // window.location.href = `${response.data.url}`;
+        window.location.href = `${import.meta.env.VITE_DOMAIN}/auth/tiktok`;
+    }
 
     return (
         <div className="mx-auto flex items-center justify-center h-screen bg-[#15559215]">
@@ -65,6 +105,9 @@ const LogInPage = () => {
                 <div className="flex justify-center items-center gap-5 mt-2">
                     <button className="border rounded-full p-2" onClick={handelLogInWithGoogle}>
                         <FcGoogle className="text-2xl" />
+                    </button>
+                    <button className="border rounded-full p-2" onClick={handelLogInWithtiktok}>
+                        <AiFillTikTok className="text-2xl"/>
                     </button>
                 </div>
 
